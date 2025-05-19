@@ -8,6 +8,18 @@ node_modules/
 dist/
 web-build/
 expo-env.d.ts
+build/
+android/.gradle/
+android/app/build/
+android/build/
+android/local.properties
+
+*.log
+*.tmp
+*.swp
+.DS_Store
+.idea/
+.vscode/
 
 # Native
 *.orig.*
@@ -31,6 +43,7 @@ yarn-error.*
 
 # local env files
 .env*.local
+.env
 
 # typescript
 *.tsbuildinfo
