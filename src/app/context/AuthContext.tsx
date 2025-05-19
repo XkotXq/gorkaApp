@@ -40,8 +40,12 @@ interface AuthProps {
 	refreshAccessToken?: () => Promise<any>;
 }
 
-const TOKEN_KEY = `f81a3799b9f044771eb628c48bbb5b5c5f161093e68780a33deaa99d5f15874d`;
-const REFRESH_TOKEN_KEY = `d1b2529c6acb3cccfa83c73c10321312883e4c898825ee3a83673f6c710534d8`;
+const TOKEN_KEY: string | undefined = process.env.EXPO_PUBLIC_TOKEN_KEY;
+const REFRESH_TOKEN_KEY: string | undefined = process.env.EXPO_PUBLIC_REFRESH_TOKEN_KEY;
+const AuthContext = createContext<AuthProps>({});
+if (!TOKEN_KEY || !REFRESH_TOKEN_KEY) {
+  throw new Error("TOKEN_KEY environment variable is not set");
+}
 const AuthContext = createContext<AuthProps>({});
 
 let isRefreshing = false;
